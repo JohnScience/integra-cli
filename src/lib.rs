@@ -9,7 +9,7 @@
 /// was technically possible but in fact abused the functionality of build scripts, making such name a misnomer.
 /// 
 /// One more reason why Rust needed a tool like Integra is that Rust crates is not the only form of an artifact
-/// with which Rust programmers have to deal. With the advent of evxcr, Jupyter notebook for evxcr kernel is
+/// with which Rust programmers have to deal with. With the advent of evxcr, Jupyter notebook for evxcr kernel is
 /// one more option.
 
 // concat! macro can work only with string literals

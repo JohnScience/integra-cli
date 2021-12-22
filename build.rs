@@ -3,5 +3,6 @@
 // Source: https://github.com/nabijaczleweli/rust-embed-resource
 
 fn main() {
+    #[cfg(target_os = "windows")]
     embed_resource::compile("integra-cli-manifest.rc");
 }

@@ -1,0 +1,19 @@
+# The template was produced with
+# ```rust
+# let config = configs::GenericConfig::default();
+# println!("{}", toml::to_string(&config).unwrap());
+# ```
+# from main.rs
+
+# Rust crates that will produce artifacts (e.g. bindings, headers, and packages for other languages)
+#   from the given Rust crate
+[export_artifacts]
+
+# Rust crates that will produce artifacts for utilization by the given Rust crate using data that is
+#   foreign to Rust (e.g. source code of other programming languages, packages, etc)
+[import_artifacts]
+
+# Rust crates that will take care of the syncronization of Rust project and of other "sources of truth"
+#   (e.g. proofs and programmatic models of their mathematical objects, Rust crate and evxcr Jupyter notebook)
+#   and thus will act on the exported and imported artifacts
+[sync]

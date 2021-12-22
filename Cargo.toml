@@ -12,5 +12,5 @@ clap = "2.34.0"
 voca_rs = "1.14.0"
 toml = "0.5.8"
 
-[build-dependencies]
+[target.'cfg(windows)'.build-dependencies]
 embed-resource = "1.6"
