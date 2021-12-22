@@ -32,6 +32,7 @@ pub mod config {
                         crate::subcommands::config::init::SC_NAME,
                         opt_config_init_args
                     ) => crate::subcommands::config::init::handle(opt_config_init_args),
+                    ("", None) => explain!("No subcommand was used"),
                     _ => crate::explain!("Invalid subcommand"),
                 }
             }
