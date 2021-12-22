@@ -1,6 +1,3 @@
-#![feature(const_fmt_arguments_new)]
-
-use core::time;
 use std::{mem::MaybeUninit, path::PathBuf};
 
 use clap::{Arg, App, SubCommand, crate_authors, crate_version};
@@ -9,6 +6,7 @@ use integra_cli::ConfigTemplates;
 mod lib;
 mod validators;
 mod handlers;
+mod configs;
 
 // TODO: create macros for clap that would verify correctness and lessen the boilerplate
 mod subcommands {
@@ -25,9 +23,9 @@ mod subcommands {
                     pub const ARG_LNAME: &'static str = "template";
                     pub const ARG_SNAME: &'static str = "t";
                     pub mod possible_values {
-                        use integra_cli::GenericConfigTemplate;
+                        use integra_cli::GenericConfigTemplateZST;
 
-                        pub const GENERIC: &'static str = GenericConfigTemplate::get_lowercase_name();
+                        pub const GENERIC: &'static str = GenericConfigTemplateZST::get_lowercase_name();
                     }
                     pub const POSSIBLE_VALUES: &'static [&'static str; 1] = &[self::possible_values::GENERIC];
                     pub const DEFAULT_VALUE: &'static str = possible_values::GENERIC;
