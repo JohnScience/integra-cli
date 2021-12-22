@@ -42,7 +42,7 @@ impl ConfigTemplates {
 
     pub fn try_write_config_template_on_fs(&self, crate_path: &str) -> Result<(), std::io::Error> {
         use std::io::Write;
-        let mut file = std::fs::File::create(crate_path)?;
+        let mut file = std::fs::File::create(Self::get_config_path_by_crate_path(crate_path))?;
         match self {
             ConfigTemplates::Generic(_) => file.write_all(include_bytes!(get_relative_path_to_template_file_by_template_type!(GenericConfigTemplate))),
         }
