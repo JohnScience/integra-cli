@@ -1,12 +1,13 @@
 use std::{mem::MaybeUninit, path::PathBuf};
 
 use clap::{Arg, App, SubCommand, crate_authors, crate_version};
-use integra_cli::ConfigTemplates;
 
 mod lib;
 mod validators;
 mod handlers;
-mod configs;
+
+use lib::cfg::config_templates::ConfigTemplates;
+use lib::cfg::config_templates::GenericConfigTemplateZST;
 
 // TODO: create macros for clap that would verify correctness and lessen the boilerplate
 mod subcommands {
@@ -23,9 +24,9 @@ mod subcommands {
                     pub const ARG_LNAME: &'static str = "template";
                     pub const ARG_SNAME: &'static str = "t";
                     pub mod possible_values {
-                        use integra_cli::GenericConfigTemplateZST;
+                        
 
-                        pub const GENERIC: &'static str = GenericConfigTemplateZST::get_lowercase_name();
+                        pub const GENERIC: &'static str = crate::GenericConfigTemplateZST::get_lowercase_name();
                     }
                     pub const POSSIBLE_VALUES: &'static [&'static str; 1] = &[self::possible_values::GENERIC];
                     pub const DEFAULT_VALUE: &'static str = possible_values::GENERIC;

@@ -1,5 +1,3 @@
-// All calls of handlers must happen from crate::subcommands::
-
 #[macro_export]
 macro_rules! explain { 
     ($s:expr) => { println!("{}. Call with --help flag for more information", $s) };
@@ -40,7 +38,7 @@ pub mod config {
     }
 
     pub mod init {
-        use integra_cli::ConfigTemplates;
+        use crate::lib::cfg::config_templates::ConfigTemplates;
 
         pub fn handle(opt_matches: Option<&clap::ArgMatches>) {
             let matches = opt_matches.unwrap();
